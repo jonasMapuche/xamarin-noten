@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cor_lay_bot"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fab"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main">
+
+    <FrameLayout
+        android:id="@+id/frm_lay_icon"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_margin="@dimen/icon_bot"
+        android:background="@drawable/ic_background_icon"
+        android:layout_gravity="top|start" >
+
+        <ImageView
+            android:id="@+id/img_viw_icon"
+            android:layout_width="43dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@drawable/ic_icon"
+            android:contentDescription="@string/" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tex_viw_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="@dimen/icon_title_top"
+        android:layout_marginLeft="@dimen/icon_title_left"
+        android:text="@string/text_title_bot" />
+
+    <View
+        android:id="@+id/viw_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/ic_background_top"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rcy_view_bot"
+        android:layout_marginTop="80dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="110dp"
+        android:scrollbarStyle="insideInset"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+        
+    <FrameLayout
+        android:id="@+id/frm_lay_send"
+        android:layout_width="53dp"
+        android:layout_height="53dp"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/icon_send" >
+
+        <ImageButton
+            android:id="@+id/img_but_send"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_background_input"
+            android:src="@drawable/ic_send" 
+            android:contentDescription="@string/description_bot_send"/>
+
+    </FrameLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txt_inp_input"
+        android:layout_width="270dp"
+        android:layout_height="53dp"
+        android:layout_margin="@dimen/icon_send"
+        android:layout_gravity="bottom|start"
+        android:background="@drawable/ic_background_input" >
+
+        <EditText
+            android:id="@+id/edt_txt_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_background_input"
+            android:imeOptions="actionDone"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:textColor="@color/letter"
+            android:textSize="18sp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

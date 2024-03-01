@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:showIn="@layout/app_bar_main"
+    android:id="@+id/cor_lay_main">
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/ic_icon"/>
+    <Button
+        android:text="Am"
+        android:textSize="40dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_am"
+        android:layout_marginBottom="0.0dp" />
+    <Button
+        android:text="C"
+        android:textSize="40dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="170dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/btn_c"
+        android:layout_marginBottom="0.0dp" />
+    <Button
+        android:text="G"
+        android:textSize="40dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="160dp"
+        android:id="@+id/btn_g"
+        android:layout_marginBottom="0.0dp" />
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
