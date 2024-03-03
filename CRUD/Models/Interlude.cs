@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace CRUD.Models
 {
     public class Interlude
     {
-        public List<Letra> letra { get; set; }
-        public int nivel { get; set; }
+        public List<Value> letra { get; set; }
         public string sigla { get; set; }
     }
 }

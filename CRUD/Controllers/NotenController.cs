@@ -19,7 +19,7 @@ namespace CRUD.Controllers
             return Ok("Expression building program based on notens!");
         }
 
-        [HttpGet("noten")]
+        [HttpGet("all")]
         public async Task<List<Noten>> GetAll()
         {
             return await _notensService.GetAsync();

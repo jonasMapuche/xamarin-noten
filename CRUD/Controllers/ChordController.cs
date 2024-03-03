@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-
 namespace CRUD.Controllers
 {
     [ApiController]
@@ -20,7 +19,7 @@ namespace CRUD.Controllers
             return Ok("Expression building program based on chords!");
         }
 
-        [HttpGet("noten")]
+        [HttpGet("all")]
         public async Task<List<Chord>> GetAll()
         {
             return await _chordsService.GetAsync();
@@ -40,7 +39,7 @@ namespace CRUD.Controllers
         {
             Chord chord = new Chord();
             chord.sigla = interlude.sigla;
-            chord.interlude = interlude;
+            chord.value = interlude.letra;
             await _chordsService.CreateAsync(chord);
             return CreatedAtAction(nameof(Get), new { id = chord.Id }, interlude);
         }

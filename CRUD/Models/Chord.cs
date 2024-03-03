@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson;
+﻿using System.Collections.Generic;
+using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
 
 namespace CRUD.Models
@@ -9,6 +10,6 @@ namespace CRUD.Models
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
         public string sigla { get; set; }
-        public Interlude interlude { get; set; }
+        public List<Value> value { get; set; }
     }
 }
