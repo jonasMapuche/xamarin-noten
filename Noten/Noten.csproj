@@ -63,7 +63,9 @@
   <ItemGroup>
     <Compile Include="Adapters\BotAdapter.cs" />
     <Compile Include="MainActivity.cs" />
+    <Compile Include="Models\ChordModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\ValueModel.cs" />
     <Compile Include="Resources\helpers\Navigation.cs" />
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -22,7 +22,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/btn_am"
+        android:id="@+id/btn_main_1"
         android:layout_marginBottom="0.0dp" />
     <Button
         android:text="C"
@@ -31,7 +31,7 @@
         android:layout_height="150dp"
         android:layout_marginStart="170dp"
         android:layout_marginTop="10dp"
-        android:id="@+id/btn_c"
+        android:id="@+id/btn_main_2"
         android:layout_marginBottom="0.0dp" />
     <Button
         android:text="G"
@@ -40,6 +40,6 @@
         android:layout_height="150dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="160dp"
-        android:id="@+id/btn_g"
+        android:id="@+id/btn_main_3"
         android:layout_marginBottom="0.0dp" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

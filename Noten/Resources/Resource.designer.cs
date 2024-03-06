@@ -3675,13 +3675,13 @@ namespace Noten
 			public const int browser_actions_menu_view = 2131230792;
 			
 			// aapt resource value: 0x7F080049
-			public const int btn_am = 2131230793;
+			public const int btn_main_1 = 2131230793;
 			
 			// aapt resource value: 0x7F08004A
-			public const int btn_c = 2131230794;
+			public const int btn_main_2 = 2131230794;
 			
 			// aapt resource value: 0x7F08004B
-			public const int btn_g = 2131230795;
+			public const int btn_main_3 = 2131230795;
 			
 			// aapt resource value: 0x7F08004C
 			public const int buttonPanel = 2131230796;
