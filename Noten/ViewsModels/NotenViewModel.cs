@@ -24,7 +24,6 @@ namespace Noten.ViewsModels
             IMongoCollection<ChordModel> ConfigurationValue = mongoDatabase.GetCollection<ChordModel>(CollectionLetter);
 
             _chordsCollection = ConfigurationValue;
-
         }
 
         public ChordModel GetChord(string sigla) => _chordsCollection.Find(index => index.sigla == sigla).FirstOrDefault();

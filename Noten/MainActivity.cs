@@ -34,6 +34,24 @@ namespace Noten
             FloatingActionButton fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
             fab.Click += FabOnClick;
 
+            Android.Widget.Button but1 = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_1);
+            but1.Click += But1Click;
+
+            Android.Widget.Button but2 = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_2);
+            but2.Click += But2Click;
+
+            Android.Widget.Button but3 = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_3);
+            but3.Click += But3Click;
+
+            Android.Widget.Button but4 = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_4);
+            but4.Click += But4Click;
+
+            Android.Widget.Button but5 = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_5);
+            but5.Click += But5Click;
+
+            Android.Widget.Button but6 = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_6);
+            but6.Click += But6Click;
+
             DrawerLayout drawer = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, Resource.String.navigation_drawer_open, Resource.String.navigation_drawer_close);
             drawer.AddDrawerListener(toggle);
@@ -43,6 +61,48 @@ namespace Noten
             navigationView.SetNavigationItemSelectedListener(this);
 
             MainView main = new MainView(this);
+        }
+
+        private void But6Click(object sender, EventArgs e)
+        {
+            BotView bot = new BotView();
+            Android.Widget.Button but = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_6);
+            BotButton(but.Text);
+        }
+
+        private void But5Click(object sender, EventArgs e)
+        {
+            BotView bot = new BotView();
+            Android.Widget.Button but = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_5);
+            BotButton(but.Text);
+        }
+
+        private void But4Click(object sender, EventArgs e)
+        {
+            BotView bot = new BotView();
+            Android.Widget.Button but = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_4);
+            BotButton(but.Text);
+        }
+
+        private void But3Click(object sender, EventArgs e)
+        {
+            BotView bot = new BotView();
+            Android.Widget.Button but = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_3);
+            BotButton(but.Text);
+        }
+
+        private void But2Click(object sender, EventArgs e)
+        {
+            BotView bot = new BotView();
+            Android.Widget.Button but = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_2);
+            BotButton(but.Text);
+        }
+
+        private void But1Click(object sender, EventArgs e)
+        {
+            BotView bot = new BotView();
+            Android.Widget.Button but = (Android.Widget.Button) FindViewById(Resource.Id.btn_main_1);
+            BotButton(but.Text);
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)
@@ -157,7 +217,7 @@ namespace Noten
             navigaton = Navigation.Home;
         }
 
-        public void NavigationBot()
+        private void Bot()
         {
             Android.Widget.FrameLayout frame_main;
             frame_main = FindViewById<Android.Widget.FrameLayout>(Resource.Id.frm_lay_main);
@@ -179,8 +239,20 @@ namespace Noten
             toolbar.SetNavigationIcon(Resource.Drawable.ic_back);
 
             navigaton = Navigation.Bot;
+        }
 
-            BotView bot = new BotView(this);
+        public void NavigationBot()
+        {
+            Bot();
+            BotView bot = new BotView();
+            bot.BotNew(this);
+        }
+
+        public void BotButton(string but)
+        {
+            Bot();
+            BotView bot = new BotView();
+            bot.BotButton(this, but);
         }
 
     }
