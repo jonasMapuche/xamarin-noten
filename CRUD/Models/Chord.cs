@@ -9,7 +9,9 @@ namespace CRUD.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-        public string sigla { get; set; }
-        public List<Value> value { get; set; }
+        public string initial { get; set; }
+        public string name { get; set; }
+        public List<string> device { get; set; }
+        public List<Lyrics> lyrics { get; set; }
     }
 }

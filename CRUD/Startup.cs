@@ -33,7 +33,9 @@ namespace CRUD
             NotenService.CollectionNoten = Configuration.GetConnectionString("CollectionNoten");
             NotenService.JsonFile = Configuration.GetConnectionString("JsonFile");
 
-            ChordService.ConnectionName = Configuration.GetConnectionString("ConnectionName");
+            ChordService.ConnectionChord = Configuration.GetConnectionString("ConnectionChord");
+            ChordService.ConnectionArtless = Configuration.GetConnectionString("ConnectionArtless");
+            ChordService.ConnectionRecipe = Configuration.GetConnectionString("ConnectionRecipe");
             ChordService.DatabaseName = Configuration.GetConnectionString("DatabaseName");
             ChordService.CollectionChord = Configuration.GetConnectionString("CollectionChord");
             ChordService.JsonFile = Configuration.GetConnectionString("JsonFile");

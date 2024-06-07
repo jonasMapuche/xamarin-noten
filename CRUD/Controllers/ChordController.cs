@@ -10,7 +10,9 @@ namespace CRUD.Controllers
     [Route("[controller]")]
     public class ChordController : ControllerBase
     {
-        public static readonly ChordService _chordsService = new ChordService();
+        public static readonly ChordService _chordsService = new ChordService("chord");
+        public static readonly ChordService _chordsService2 = new ChordService("artless");
+        public static readonly ChordService _chordsService3 = new ChordService("recipe");
 
         [HttpGet("")]
         public async Task<ActionResult> Get()
@@ -25,23 +27,22 @@ namespace CRUD.Controllers
             return await _chordsService.GetAsync();
         }
 
-        [HttpGet("{id:length(24)}")]
+        [HttpGet("noten/{id}")]
         public async Task<ActionResult<Chord>> Get(string id)
         {
-            var chord = await _chordsService.GetAsync(id);
+            var chord = await _chordsService.GetChordAsync(id);
             if (chord is null)
                 return NotFound();
             return chord;
         }
 
-        [HttpPost("add")]
-        public async Task<IActionResult> Post(Interlude interlude)
+        [HttpPost("")]
+        public async Task<IActionResult> Post(Chord chord)
         {
-            Chord chord = new Chord();
-            chord.sigla = interlude.sigla;
-            chord.value = interlude.letra;
             await _chordsService.CreateAsync(chord);
-            return CreatedAtAction(nameof(Get), new { id = chord.Id }, interlude);
+            await _chordsService2.CreateAsync(chord);
+            await _chordsService3.CreateAsync(chord);
+            return CreatedAtAction(nameof(Get), new { id = chord.Id }, chord);
         }
 
     }
