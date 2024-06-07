@@ -28,7 +28,9 @@ namespace CRUD
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "CRUD", Version = "v1" });
             });
 
-            NotenService.ConnectionName = Configuration.GetConnectionString("ConnectionName");
+            NotenService.ConnectionNoten = Configuration.GetConnectionString("ConnectionNoten");
+            NotenService.ConnectionLetter = Configuration.GetConnectionString("ConnectionLetter");
+            NotenService.ConnectionMalware = Configuration.GetConnectionString("ConnectionMalware");
             NotenService.DatabaseName = Configuration.GetConnectionString("DatabaseName");
             NotenService.CollectionNoten = Configuration.GetConnectionString("CollectionNoten");
             NotenService.JsonFile = Configuration.GetConnectionString("JsonFile");

@@ -1,6 +1,7 @@
 ﻿using CRUD.Models;
 using CRUD.Services;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -10,7 +11,9 @@ namespace CRUD.Controllers
     [Route("[controller]")]
     public class NotenController : ControllerBase
     {
-        public static readonly NotenService _notensService = new NotenService();
+        public static readonly NotenService _notensService = new NotenService("noten");
+        public static readonly NotenService _notensService2 = new NotenService("letter");
+        public static readonly NotenService _notensService3 = new NotenService("malware");
 
         [HttpGet("")]
         public async Task<ActionResult> Get()
@@ -25,23 +28,22 @@ namespace CRUD.Controllers
             return await _notensService.GetAsync();
         }
 
-        [HttpGet("{id:length(24)}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Noten>> Get(string id)
         {
-            var noten = await _notensService.GetAsync(id);
+            var noten = await _notensService.GetNotenAsync(Convert.ToDouble(id));
             if (noten is null)
                 return NotFound();
             return noten;
         }
 
-        [HttpPost("add")]
-        public async Task<IActionResult> Post(Nota nota)
+        [HttpPost("")]
+        public async Task<IActionResult> Post(Noten noten)
         {
-            Noten noten = new Noten();
-            noten.frequencia = nota.frequencia;
-            noten.nota = nota;
             await _notensService.CreateAsync(noten);
-            return CreatedAtAction(nameof(Get), new { id = noten.Id }, nota);
+            await _notensService2.CreateAsync(noten);
+            await _notensService3.CreateAsync(noten);
+            return CreatedAtAction(nameof(Get), new { id = noten.Id }, noten);
         }
 
     }

@@ -92,6 +92,7 @@ namespace Noten.Views
             message.sender = 2;
             message.text = "Chord " + nota;
             chatMessage.Add(message);
+            //loop com as mensagens do acorde
             adapter = new BotAdapter(chatMessage);
             recyclerView.SetAdapter(adapter);
         }

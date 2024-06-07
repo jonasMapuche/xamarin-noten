@@ -7,19 +7,32 @@ namespace CRUD.Services
 {
     public class NotenService
     {
-        public static string ConnectionName { get; set; }
+        public static string ConnectionNoten { get; set; }
+        public static string ConnectionLetter { get; set; }
+        public static string ConnectionMalware { get; set; }
         public static string DatabaseName { get; set; }
         public static string CollectionNoten { get; set; }
         public static string JsonFile { get; set; }
 
         private readonly IMongoCollection<Noten> _notensCollection;
 
-        public NotenService()
+        public NotenService(string connection)
         {
-            var mongoClient = new MongoClient(ConnectionName);
+            MongoClient mongoClient;
+            switch (connection)
+            {
+                case "malware":
+                    mongoClient = new MongoClient(ConnectionMalware);
+                    break;
+                case "letter":
+                    mongoClient = new MongoClient(ConnectionLetter);
+                    break;
+                default:
+                    mongoClient = new MongoClient(ConnectionNoten);
+                    break;
+            }
             var mongoDatabase = mongoClient.GetDatabase(DatabaseName);
             IMongoCollection<Noten> ConfigurationValue = mongoDatabase.GetCollection<Noten>(CollectionNoten);
-
             _notensCollection = ConfigurationValue;
         }
 
@@ -29,11 +42,8 @@ namespace CRUD.Services
         public async Task<Noten> GetAsync(string id) =>
             await _notensCollection.Find(index => index.Id == id).FirstOrDefaultAsync();
 
-        public async Task<Noten> GetNotenAsync(string nota) =>
-            await _notensCollection.Find(index => index.nota.letra.Find(index2 => index2.nome == nota && index2.acidente == "").nome != "").FirstOrDefaultAsync();
-
-        public async Task<List<Noten>> GetNotenNextAsync(float frequencia, int ordem) =>
-            await _notensCollection.Find(index => index.nota.frequencia > frequencia).Limit(ordem).ToListAsync();
+        public async Task<Noten> GetNotenAsync(double frequence) =>
+            await _notensCollection.Find(index => index.frequency == frequence).FirstOrDefaultAsync();
 
         public async Task CreateAsync(Noten noten) =>
             await _notensCollection.InsertOneAsync(noten);

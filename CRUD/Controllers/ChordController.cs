@@ -27,7 +27,7 @@ namespace CRUD.Controllers
             return await _chordsService.GetAsync();
         }
 
-        [HttpGet("noten/{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Chord>> Get(string id)
         {
             var chord = await _chordsService.GetChordAsync(id);

@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
+using System.Collections.Generic;
 
 namespace Noten.ViewsModels
 {
@@ -12,6 +13,8 @@ namespace Noten.ViewsModels
         public BotViewModel() { }
 
         HttpClient client = new HttpClient();
+
+        public static readonly NotenViewModel _notensViewModel = new NotenViewModel();
 
         public async Task<string> Get()
         {
@@ -35,6 +38,28 @@ namespace Noten.ViewsModels
             response.EnsureSuccessStatusCode();
             var result = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<MessageModel>(result);
+        }
+
+        public List<string> GetChord(string initial)
+        {
+            ChordModel chord = _notensViewModel.GetChord(initial);
+            List<string> saida = new List<string>();
+            if (chord != null)
+            {
+                saida.Add(chord.initial.ToString());
+                saida.Add(chord.name.ToString());
+                chord.lyrics.ForEach(index =>
+                {
+                    saida.Add(index.name.ToString());
+                    saida.Add(index.frequency.ToString());
+                    saida.Add(index.constricted ? "corda contrita" : "corda solta");
+                    saida.Add("casa " + index.home.ToString());
+                    if (index.lash) saida.Add("pestana");
+                    else saida.Add("dedo " + index.finger.ToString());
+                });
+            }
+            else saida = null;
+            return saida;
         }
     }
 }
