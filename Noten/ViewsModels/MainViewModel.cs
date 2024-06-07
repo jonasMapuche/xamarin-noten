@@ -14,7 +14,7 @@ namespace Noten.ViewsModels
             List<string> saida = new List<string>();
             if (chord != null)
             {
-                saida.Add(chord.sigla.ToString());
+                saida.Add(chord.initial.ToString());
             }
             else saida = null;
             return saida;

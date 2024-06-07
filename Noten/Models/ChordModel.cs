@@ -9,7 +9,10 @@ namespace Noten.Models
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string? Id { get; set; }
-        public string sigla { get; set; }
-        public List<ValueModel> value { get; set; }
+        public string initial { get; set; }
+        public string name { get; set; }
+        public List<string> device { get; set; }
+        public List<LyricsModel> lyrics { get; set; }
+
     }
 }

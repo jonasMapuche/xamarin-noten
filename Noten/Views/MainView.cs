@@ -24,7 +24,7 @@ namespace Noten.Views
         void Botton1(Context context)
         {
             MainViewModel mainViewModel = new MainViewModel();
-            List<string> frase = mainViewModel.GetChord("AM");
+            List<string> frase = mainViewModel.GetChord("Am");
             Button button_title = (Button) ((Activity) context).FindViewById(Resource.Id.btn_main_1);
             button_title.Text = frase[0];
         }
